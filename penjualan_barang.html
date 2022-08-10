@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+    <link href="blog.css" rel="stylesheet">
+  
+    <title>PROGRAM UAS</title>
+  </head>
+  <body>
+    <div class="container">
+        <header class="blog-header py-3">
+          <div class="row flex-nowrap justify-content-between align-items-center">
+            
+            <div class="col-12 text-center">
+              <h1 class="text-muted">PROGRAM UAS</h1>
+            </div>
+          </div>
+        </header>
+        
+        <div class="nav-scroller py-1 mb-2">
+          <nav class="nav d-flex justify-content-between">
+            
+            <a class="p-2 text-muted nav-link " href="program_penjualan_barang.html">Program Penjualan Barang</a>
+            <a class="p-2 text-muted nav-link " href="program_penggajian_karyawan.html"> Penggajian Karyawan</a>
+            <a class="p-2 text-muted nav-link" href="program_pembelian_barang.html"> Pembelian Barang</a>
+            
+            <a class="p-2 text-muted nav-link" href="program_pembelian_barang_member.html"> Pembelian Barang(Member)</a>
+            <a class="p-2 nav-link btn btn-primary text-light " href="penjualan_barang.html"> Penjualan Barang</a>
+            <a class="p-2 text-muted nav-link" href="penjualan_motor.html"> Penjualan Motor</a>
+            <a class="p-2 text-muted nav-link" href="tagihan_listrik.html"> Tagihan Listrik</a>
+            <a class="p-2 text-muted nav-link" href="kredit_rumah.html"> Kredit Rumah</a>
+          </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <h1 class="text-muted text-center">Program Penjualan Barang Elektronik</h1>
+                  <form name="form">
+                    
+                    <div class="form-group text-muted">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Aksesoris </th>
+                            <th scope="col">Harga</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td scope="row">USB</td>
+                            <td>50000</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">Memory</td>
+                            <td>120000</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">Speaker</td>
+                            <td>40000</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Nama Barang</label>
+                      <input type="text" class="form-control"  placeholder="Acer Nitro" required name="NamaBarang">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Harga Barang</label>
+                      <input type="text" class="form-control"  placeholder="1000000" required name="HargaBarang">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Jumlah Barang</label>
+                      <input type="text" class="form-control"  placeholder="10" required name="JumlahBarang">
+                    </div>
+                    
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Aksesoris :</label>
+                        
+                        <input type="radio" name="pilih">USB
+                        <input type="radio" name="pilih">Memory
+                        <input type="radio" name="pilih">Speaker
+                      </div>
+                    
+                    <div class="form-group">
+                      <a class="btn btn-info" onclick="total()">Hitung</a>
+                      <a href="penjualan_barang.html" class="btn btn-danger">Hapus</a>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Total</label>
+                      <input type="text" class="form-control" name="total" placeholder="Total...." readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Pajak 10%</label>
+                        <input type="text" class="form-control" name="pajak" placeholder="Pajak....." readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Bayar</label>
+                        <input type="text" class="form-control" name="totalBayar" placeholder="Bayar...." readonly>
+                      </div>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+
+
+      <footer class="blog-footer">
+        <p>Uas Semester 2</p>
+        <p>
+          <a href="#">Back to top</a>
+        </p>
+      </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="jquery-3.2.1.slim.min.js"></script>
+    <script src="popper.min.js" ></script>
+    <script src="bootstrap.min.js" ></script>
+
+    <script>
+      function total(){
+            var HargaBarang = parseFloat (document.form.HargaBarang.value);
+            var JumlahBarang = parseFloat(document.form.JumlahBarang.value);
+            var total = HargaBarang*JumlahBarang;
+            
+            var Aksesoris = "";
+            if (form.pilih[0].checked){
+                Aksesoris= 50000;
+                }
+                if(form.pilih[1].checked){
+                          Aksesoris=120000;
+                } if(form.pilih[2].checked){
+                          Aksesoris=40000;
+                }
+                    
+            var AllTotal = total+Aksesoris;
+            document.form.total.value="Rp "+AllTotal;
+
+            var pajak = AllTotal*0.1;
+            document.form.pajak.value="Rp "+pajak;
+            
+            var totalBayar = AllTotal+pajak;
+            document.form.totalBayar.value="Rp "+totalBayar;
+          }
+    
+    </script>
+  </body>
+</html>

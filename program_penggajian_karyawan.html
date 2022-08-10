@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+    <link href="blog.css" rel="stylesheet">
+  
+    <title>PROGRAM UAS</title>
+  </head>
+  <body>
+    <div class="container">
+        <header class="blog-header py-3">
+          <div class="row flex-nowrap justify-content-between align-items-center">
+            
+            <div class="col-12 text-center">
+              <h1 class="text-muted">PROGRAM UAS</h1>
+            </div>
+          </div>
+        </header>
+        
+        <div class="nav-scroller py-1 mb-2">
+          <nav class="nav d-flex justify-content-between">
+            
+            <a class="p-2 text-muted nav-link" href="program_penjualan_barang.html">Program Penjualan Barang</a>
+            <a class="p-2 nav-link btn btn-primary text-light" href="program_penggajian_karywan.html"> Penggajian Karyawan</a>
+            <a class="p-2 text-muted nav-link" href="program_pembelian_barang.html"> Pembelian Barang</a>
+            
+            <a class="p-2 text-muted nav-link" href="program_pembelian_barang_member.html"> Pembelian Barang(Member)</a>
+            <a class="p-2 text-muted nav-link" href="penjualan_barang.html"> Penjualan Barang</a>
+            <a class="p-2 text-muted nav-link" href="penjualan_motor.html"> Penjualan Motor</a>
+            <a class="p-2 text-muted nav-link" href="tagihan_listrik.html"> Tagihan Listrik</a>
+            <a class="p-2 text-muted nav-link" href="kredit_rumah.html"> Kredit Rumah</a>
+          </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <h1 class="text-muted text-center">Program Penggajian Karywan</h1>
+                  <form name="isi">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Nama Pegawai</label>
+                      <input type="text" class="form-control" name="namaPegawai" placeholder="Nama Pegawai....">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Jam Kerja</label>
+                      <input type="text" class="form-control" name="jamKerja" placeholder="Jam Kerja....">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Upah Per-Jam</label>
+                      <input type="text" class="form-control" name="upah" placeholder="Upah Per-jamKerja....">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Jumlah Anak</label>
+                        <input type="text" class="form-control" name="jumlahAnak" placeholder="Jumlah Anak....">
+                    </div>
+                    
+                    <div class="form-group">
+                      <a class="btn btn-info" onclick="hitung()">Hitung</a>
+                      <a href="program_penggajian_karyawan.html" class="btn btn-danger">Hapus</a>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Gaji</label>
+                        <input type="text" class="form-control" name="gaji" placeholder="Gaji....." readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Tunjangan Anak </label>
+                        <input type="text" class="form-control" name="tunjanganAnak" placeholder="Tunjangan Anak 10%" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Total Gaji</label>
+                        <input type="text" class="form-control" name="totalGaji" placeholder="Total Gaji...." readonly>
+                      </div>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+
+
+      <footer class="blog-footer">
+        <p>UAS Semster 2</p>
+        <p>
+          <a href="#">Back to top</a>
+        </p>
+      </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="jquery-3.2.1.slim.min.js"></script>
+    <script src="popper.min.js" ></script>
+    <script src="bootstrap.min.js" ></script>
+
+    <script>
+       function hitung()
+        {
+            var jamKerja = parseFloat (document.isi.jamKerja.value);
+            if (isNaN (jamKerja)) 
+            {
+                jamKerja=0.0;
+            }
+
+            var upah = parseFloat (document.isi.upah.value);
+            if (isNaN (upah)) 
+            {
+                upah=0.0;    
+            }
+            
+            var jumlahAnak = parseFloat (document.isi.jumlahAnak.value);
+
+            var tunjanganAnak = parseFloat (document.isi.tunjanganAnak.value);
+
+            var gaji = jamKerja*upah;
+            document.isi.gaji.value="Rp "+gaji;
+
+            var tunjanganAnak = gaji * 0.1*jumlahAnak;
+            document.isi.tunjanganAnak.value="Rp "+tunjanganAnak;
+
+            var totalGaji = gaji + tunjanganAnak;
+            document.isi.totalGaji.value="Rp "+totalGaji;
+        }
+    </script>
+  </body>
+</html>

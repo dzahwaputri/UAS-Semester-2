@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+    <link href="blog.css" rel="stylesheet">
+  
+    <title>PROGRAM UAS</title>
+  </head>
+  <body>
+    <div class="container">
+        <header class="blog-header py-3">
+          <div class="row flex-nowrap justify-content-between align-items-center">
+            
+            <div class="col-12 text-center">
+              <h1 class="text-muted">PROGRAM UAS</h1>
+            </div>
+          </div>
+        </header>
+        
+        <div class="nav-scroller py-1 mb-2">
+          <nav class="nav d-flex justify-content-between">
+            
+            <a class="p-2 text-muted nav-link " href="program_penjualan_barang.html">Program Penjualan Barang</a>
+            <a class="p-2 text-muted nav-link " href="program_penggajian_karyawan.html"> Penggajian Karyawan</a>
+            <a class="p-2 text-muted nav-link" href="program_pembelian_barang.html"> Pembelian Barang</a>
+            
+            <a class="p-2 text-muted nav-link" href="program_pembelian_barang_member.html"> Pembelian Barang(Member)</a>
+            <a class="p-2 text-muted nav-link" href="penjualan_barang.html"> Penjualan Barang</a>
+            <a class="p-2 text-muted nav-link" href="penjualan_motor.html"> Penjualan Motor</a>
+            <a class="p-2 text-muted nav-link" href="tagihan_listrik.html"> Tagihan Listrik</a>
+            <a class="p-2 nav-link btn btn-primary text-light " href="kredit_rumah.html"> Kredit Rumah</a>
+          </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <h1 class="text-muted text-center">Program Kredit Rumah</h1>
+                  <form name="isiform" id="isiform" >
+                    
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect2">Type Rumah</label>
+                        <select class="form-control" name="kategori" id="kategori" onchange="pilih ()">
+                          <option>Pilih Tipe Rumah</option>
+                          <option value="Almanda">Almanda</option>
+                          <option value="Mawar">Mawar</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Lama Kredit</label>
+                        <input type="email" class="form-control"  id="lamaKreditInput" placeholder="Lama Kredit">
+                      </div>
+                      
+                    <div class="form-group">
+                      <a class="btn btn-info" onclick="proses()">Hitung</a>
+                      <a href="kredit_rumah.html" class="btn btn-danger">Hapus</a>
+                    </div>
+                    <hr>
+                    <h3 class="text-muted text-center">Harga Rumah</h3>
+                    <ul class="text-center" type="square">
+                      <li>Type Almanda =  120000000</li>
+                      <li>Type Mawar = 130000000</li>
+                      <li><p>Uang Muka Sebesar 20% dari Total Harga Rumah</p></li>
+                    </ul>
+                    <hr>
+                    <table class="align-items-center" style="align:center;">
+                      <label for=""><h2>Program Kredit Rumah</label></h2>
+                        <tr>
+                          <td class="text-muted">Type Rumah</td>
+                          <td class="text-muted">:</td>
+                          <td><div id="namaRumah"></div></td>
+                        </tr>
+                        <tr>
+                          <td class="text-muted">Harga Rumah</td>
+                          <td class="text-muted">:</td>
+                          <td class="text-muted"><input type="text" class="form-control" name="hargaRumah" id="hargaRumah" value="" disabled></div></td>
+                        </tr>
+                        <tr>
+                          <td class="text-muted">Uang Muka</td>
+                          <td class="text-muted">:</td>
+                          <td class="text-muted"><input type="text" class="form-control" name="uangMuka" id="uangMuka" value="" disabled></td>
+                        </tr>
+                        <tr>
+                          <td class="text-muted">Sisa</td>
+                          <td class="text-muted">:</td>
+                          <td class="text-muted"><input type="text" class="form-control" name="sisa" id="sisa" value="" disabled></td>
+                        </tr>
+                        <tr>
+                          <td class="text-muted">Lama Kredit</td>
+                          <td class="text-muted">:</td>
+                          <td class="text-muted"><input type="text" class="form-control" id="lamaKreditOutput" value="" disabled></td>
+                        </tr>
+                        <tr>
+                          <td class="text-muted">Angsuran</td>
+                          <td class="text-muted">:</td>
+                          <td class="text-muted"><input type="text" id="angsuran" class="form-control" name="angsuran" value="" disabled></td>
+                        </tr>
+                      </table>
+                      <div class="table2">
+                          <textarea name="ohasil" rows="15" cols="70" class="text-muted form-control">Rincian Kredit Perbulan</textarea>
+                      </div>
+                    
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+
+
+      <footer class="blog-footer">
+        <p>UAS Semester 2</p>
+        <p>
+          <a href="#">Back to top</a>
+        </p>
+      </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="jquery-3.2.1.slim.min.js"></script>
+    <script src="popper.min.js" ></script>
+    <script src="bootstrap.min.js" ></script>
+
+    <script>
+        function pilih()
+        { 
+          
+          var typerumah=document.getElementById("isiform").kategori.value;
+          if (typerumah=="Almanda")
+          {
+            document.getElementById("namaRumah").innerHTML="ALMANDA";
+            document.isiform.hargaRumah.value=120000000;
+          } 
+          else if (typerumah=="Mawar")
+          {
+            document.getElementById("namaRumah").innerHTML="MAWAR";
+            document.isiform.hargaRumah.value=130000000;
+          }
+        }
+function proses()
+      {
+        var x;
+        x = document.getElementById("lamaKreditInput").value;
+        document.getElementById("lamaKreditOutput").value=x;
+
+        var hargaRumah = parseFloat(document.isiform.hargaRumah.value)
+        if (isNaN(hargaRumah))
+        {
+          hargaRumah="";
+        }      
+        var hasiluangmuka = hargaRumah * 0.2;
+        document.isiform.uangMuka.value=+hasiluangmuka;
+
+        var hasilsisa = hargaRumah - hasiluangmuka;
+        document.isiform.sisa.value=+hasilsisa;
+
+        var hasilangsuran = hasilsisa / x;
+        document.isiform.angsuran.value=+hasilangsuran;
+
+        var hasil="";
+        for(i=1;i<=x;i++)
+        {
+          angsuran= (hasilsisa-hasilangsuran) ;
+          hasil=hasil+"Angsuran ke-"+i+"  Rp. "+hasilangsuran+" = Rp. "+angsuran+"\n";
+        }
+        document.isiform.ohasil.value=hasil;
+
+      }   
+    </script>
+  </body>
+</html>

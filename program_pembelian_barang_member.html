@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+    <link href="blog.css" rel="stylesheet">
+  
+    <title>PROGRAM UAS</title>
+  </head>
+  <body>
+    <div class="container">
+        <header class="blog-header py-3">
+          <div class="row flex-nowrap justify-content-between align-items-center">
+            
+            <div class="col-12 text-center">
+              <h1 class="text-muted">PROGRAM UAS</h1>
+            </div>
+          </div>
+        </header>
+        
+        <div class="nav-scroller py-1 mb-2">
+          <nav class="nav d-flex justify-content-between">
+            
+            <a class="p-2 text-muted nav-link " href="program_penjualan_barang.html">Program Penjualan Barang</a>
+            <a class="p-2 text-muted nav-link " href="program_penggajian_karyawan.html"> Penggajian Karyawan</a>
+            <a class="p-2 text-muted nav-link" href="program_pembelian_barang.html"> Pembelian Barang</a>
+            
+            <a class="p-2 nav-link btn btn-primary text-light " href="program_pembelian_barang_member.html"> Pembelian Barang(Member)</a>
+            <a class="p-2 text-muted nav-link" href="penjualan_barang.html"> Penjualan Barang</a>
+            <a class="p-2 text-muted nav-link" href="penjualan_motor.html"> Penjualan Motor</a>
+            <a class="p-2 text-muted nav-link" href="tagihan_listrik.html"> Tagihan Listrik</a>
+            <a class="p-2 text-muted nav-link" href="kredit_rumah.html"> Kredit Rumah</a>
+          </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <h1 class="text-muted text-center">Program Pembelian Barang</h1>
+                  <h5 class="text-muted text-center">(Khusus Member)</h5>
+                  <form name="form" onchange="total()" >
+                    
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect2">Nama Barang</label>
+                        <select class="form-control" id="exampleFormControlSelect2" name="namaBarang">
+                          <option>Pilihlah Barang</option>
+                          <option value="Monitor">Monitor</option>
+                          <option value="Keyboard">Keyboard</option>
+                          <option value="Mouse">Mouse</option>
+                          <option value="Speaker">Speaker</option>
+                        </select>
+                      </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Jumlah Barang</label>
+                      <input type="email" class="form-control" name="jumlahBarang" placeholder="Jumlah Barang....">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Member ?</label><br>    
+                        <input type="checkbox" class="" name="member"> Ya
+                      </div>
+                    <div class="form-group">
+                      <a class="btn btn-info" onclick="total()">Hitung</a>
+                      <a href="program_pembelian_barang_member.html" class="btn btn-danger">Hapus</a>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Harga Barang</label>
+                      <input type="email" class="form-control" name="hargaBarang" placeholder="Harga Barang..." readonly>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Total</label>
+                      <input type="email" class="form-control" name="total" placeholder="Total...." readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Diskon 10%</label>
+                        <input type="email" class="form-control" name="diskon" placeholder="Diskon..." readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Bayar</label>
+                        <input type="email" class="form-control" name="bayar" placeholder="Bayar...." readonly>
+                      </div>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+
+
+      <footer class="blog-footer">
+        <p>UAS Semster 2</p>
+        <p>
+          <a href="#">Back to top</a>
+        </p>
+      </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="jquery-3.2.1.slim.min.js"></script>
+    <script src="popper.min.js" ></script>
+    <script src="bootstrap.min.js" ></script>
+
+    <script>
+      function total(){
+
+			var namaBarang = (document.form.namaBarang.value);
+			var jumlahBarang = parseFloat (document.form.jumlahBarang.value);
+			var ht = 0.0 ;
+			var sub = 0.0;
+			var diskon = 0.0;
+			var total = 0.0;
+			if (namaBarang == "Monitor") {
+
+				ht = 3000000;
+			}
+			else if(namaBarang == "Keyboard")
+			{
+				ht = 2500000;
+			}
+            else if(namaBarang == "Mouse")
+			{
+				ht = 1500000;
+			}
+			else
+			{
+				ht = 500000;
+			}
+
+			sub = jumlahBarang*ht;
+
+			if (document.form.member.checked == true) 
+			{
+				diskon = 0.1 * sub;
+			}
+			else
+			{
+				diskon=0.0;
+			}
+			total = sub - diskon;
+			document.form.hargaBarang.value=eval(ht);
+			document.form.total.value=eval(sub);
+			document.form.diskon.value=eval(diskon);
+			document.form.bayar.value=eval(total); 
+    }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+    <link href="blog.css" rel="stylesheet">
+  
+    <title>PROGRAM UAS</title>
+  </head>
+  <body>
+    <div class="container">
+        <header class="blog-header py-3">
+          <div class="row flex-nowrap justify-content-between align-items-center">
+            
+            <div class="col-12 text-center">
+              <h1 class="text-muted">PROGRAM UAS</h1>
+            </div>
+          </div>
+        </header>
+        
+        <div class="nav-scroller py-1 mb-2">
+          <nav class="nav d-flex justify-content-between">
+            
+            <a class="p-2 text-muted nav-link " href="program_penjualan_barang.html">Program Penjualan Barang</a>
+            <a class="p-2 text-muted nav-link " href="program_penggajian_karyawan.html"> Penggajian Karyawan</a>
+            <a class="p-2 text-muted nav-link" href="program_pembelian_barang.html"> Pembelian Barang</a>
+            
+            <a class="p-2 text-muted nav-link" href="program_pembelian_barang_member.html"> Pembelian Barang(Member)</a>
+            <a class="p-2 text-muted nav-link" href="penjualan_barang.html"> Penjualan Barang</a>
+            <a class="p-2 text-muted nav-link" href="penjualan_motor.html"> Penjualan Motor</a>
+            <a class="p-2 nav-link btn btn-primary text-light " href="tagihan_listrik.html"> Tagihan Listrik</a>
+            <a class="p-2 text-muted nav-link" href="kredit_rumah.html"> Kredit Rumah</a>
+          </nav>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <h1 class="text-muted text-center">Menghitung Tagihan
+                    Listrik PLN Bandung</h1>
+                  <form>
+                    <div class="form-group text-muted">
+                        
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Kategori</th>
+                            <th scope="col">Abodemen</th>
+                            <th scope="col">Tarif PER-KWH</th>
+                            <th scope="col">Pajak</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td scope="row">Sosial</td>
+                            <td>10000</td>
+                            <td>300</td>
+                            <td>0%</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">Rumah</td>
+                            <td>30000</td>
+                            <td>500</td>
+                            <td>10%</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">Industri</td>
+                            <td>50000</td>
+                            <td>1000</td>
+                            <td>30%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Nama Pelanggan</label>
+                      <input type="text" class="form-control"  placeholder="Nama Pelanggan......" id="Nama">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect2">Kategori</label>
+                        <select class="form-control" id="kategori">
+                          <option>Pilih Kategori</option>
+                          <option value="sosial">Sosial</option>
+                          <option value="rumah">Rumah</option>
+                          <option value="industri">Industri</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Jumlah Pemakaian Listrik</label>
+                        <input type="text" class="form-control" id="jumlah" placeholder="Jumlah Pemakaian Listrik....">
+                      </div>
+                      
+                    <div class="form-group">
+                      <a class="btn btn-info" onclick="total()">Hitung</a>
+                      <a href="tagihan_listrik.html" class="btn btn-danger">Hapus</a>
+                    </div>
+
+                    <table cellpadding="7" class="table table-hover">
+                      <tr>
+                          <td>Jumlah</td>
+                          <td>Tarif per KWh</td>
+                          <td>Abodemen</td>
+                          <td>Sub Total</td>
+                      </tr>
+                      <tr>
+                          <td id="outjumlah"></td>
+                          <td id="outTarif"></td>
+                          <td id="outAbodemen"></td>
+                          <td id="outSubtotal"></td>
+                      </tr>
+                  </table>
+                    <table cellpadding="5">
+                      <tr>
+                          <td>Subtotal</td>
+                          <td>:</td>
+                          <td id="outputTotal"></td>
+                      </tr>
+                      <tr>
+                          <td>Pajak</td>
+                          <td>:</td>
+                          <td id="outputPajak"></td>
+                      </tr>
+                      <tr>
+                          <td>Bayar</td>
+                          <td>:</td>
+                          <td id="outputBayar"></td>
+                      </tr>
+                  </table>
+                  
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+        
+
+
+      <footer class="blog-footer">
+        <p>UAS Semester 2</p>
+        <p>
+          <a href="#">Back to top</a>
+        </p>
+      </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="jquery-3.2.1.slim.min.js"></script>
+    <script src="popper.min.js" ></script>
+    <script src="bootstrap.min.js" ></script>
+
+    <script>
+      function total(){
+            var kategori = document.getElementById("kategori").value;
+            let jumlah = document.getElementById("jumlah").value;
+
+            let pajak;
+            switch (kategori) {
+              case "sosial":
+              
+                pajak = 0;
+                break;
+                case "rumah":
+                    pajak = .1;
+                    break;
+                    case "industri":
+                  pajak = .3;      
+                  break;
+              }
+                  let y=jumlah;
+                  let tarifSosial = 0;
+                  let tarifRumah = 0;
+                  let tarifIndustri = 0;
+                  let abodemen;
+                  let subtotal;
+                  
+                  let teks = "";
+                  let jumlahPemakaian = "";
+                  let hasilAbodemen = "";
+                  let hasilSubtotal = "";
+                  for(let i=1; i <= y; i++){
+                    jumlahPemakaian +=+ i + "<br>";
+                    if(kategori == "rumah"){
+                      tarifRumah += 500;
+                      teks += tarifRumah + "<br>";
+
+                      abodemen = 30000;
+                      subtotal = abodemen+tarifRumah;
+                      
+                      hasilAbodemen += abodemen+ "<br>";
+                      hasilSubtotal += subtotal + "<br>";
+                  }else if(kategori == "sosial"){
+                      tarifSosial += 300;
+                      teks += tarifSosial + "<br>";
+                      
+                      abodemen = 10000;
+                      subtotal = abodemen+tarifSosial;
+
+                      hasilAbodemen += abodemen+ "<br>";
+                      hasilSubtotal += subtotal + "<br>";
+                  }else if(kategori == "industri"){
+                      tarifIndustri += 1000;
+                      teks += tarifIndustri + "<br>";
+                      
+                      abodemen = 50000;
+                      subtotal = abodemen+tarifIndustri;
+
+                      hasilAbodemen += abodemen+ "<br>";
+                      hasilSubtotal += subtotal + "<br>";
+
+                  }
+                    // tampilkan
+                    document.getElementById("outjumlah").innerHTML= jumlahPemakaian;
+                    document.getElementById("outTarif").innerHTML= teks;
+                    document.getElementById("outAbodemen").innerHTML= hasilAbodemen;
+                    document.getElementById("outSubtotal").innerHTML= hasilSubtotal;
+                    if(i==i){
+                      document.getElementById("outputTotal").innerHTML= subtotal;  
+                      let outpajak=pajak*subtotal;
+                      document.getElementById("outputPajak").innerHTML= outpajak;
+                      let bayar = outpajak + subtotal;
+                      document.getElementById("outputBayar").innerHTML= bayar;
+                  }
+                }
+
+}
+    </script>
+  </body>
+</html>
